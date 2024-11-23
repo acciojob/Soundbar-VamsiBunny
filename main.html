@@ -3,21 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Audio Player</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Simple Audio Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
+  <h1>Simple Audio Player</h1>
+  <button onclick="playAudio()">Play Sound</button>
+  <button onclick="stopAudio()">Stop Audio</button>
 
-  <div class="container">
-    <div id="buttons" class="buttons">
-      <button class="btn" onclick="playSound('sound1.mp3')">Sound 1</button>
-      <button class="btn" onclick="playSound('sound2.mp3')">Sound 2</button>
-      <button class="btn" onclick="playSound('sound3.mp3')">Sound 3</button>
-      <button class="btn" onclick="playSound('sound4.mp3')">Sound 4</button>
-    </div>
-    <button class="stop" onclick="stopSound()">Stop</button>
-  </div>
+  <audio id="audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto"></audio>
 
-  <script src="script.js"></script>
+  <script>
+    // Get the audio element
+    const audio = document.getElementById("audio");
+
+    // Play the audio
+    function playAudio() {
+      audio.play().catch((err) => {
+        console.error("Error playing audio: ", err);
+        alert("Audio play error: " + err.message);
+      });
+    }
+
+    // Stop the audio
+    function stopAudio() {
+      audio.pause();
+      audio.currentTime = 0; // Reset the audio to the start
+    }
+  </script>
 </body>
 </html>
