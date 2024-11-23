@@ -8,8 +8,8 @@ function playSound(filename) {
   }
   
   // Set the new sound source and play it
-  audio = new Audio('sounds/' + filename);
-  audio.play();
+  audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+audio.play();
   currentSound = filename;
 }
 
