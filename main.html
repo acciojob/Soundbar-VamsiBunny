@@ -1,51 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Audio Test</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soundbar</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Simple Audio Player</h1>
-  <button onclick="playAudio()">Play Sound</button>
-  <button onclick="stopAudio()">Stop Audio</button>
-
-  <audio id="audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto"></audio>
-
-  <script>
-    // Get the audio element
-    const audio = document.getElementById("audio");
-
-    // Play the audio
-    function playAudio() {
-      audio.play().catch((err) => {
-        console.error("Error playing audio: ", err);
-        alert("Audio play error: " + err.message);
-      });
-    }
-
-    // Stop the audio
-    function stopAudio() {
-      audio.pause();
-      audio.currentTime = 0; // Reset the audio to the start
-    }
-  </script>
+    <div class="container">
+        <section id="buttons">
+            <button class="btn" onclick="playSound('applause')">applause</button>
+            <button class="btn" onclick="playSound('boo')">boo</button>
+            <button class="btn" onclick="playSound('gasp')">gasp</button>
+            <button class="btn" onclick="playSound('tada')">tada</button>
+            <button class="btn" onclick="playSound('victory')">victory</button>
+            <button class="btn" onclick="playSound('wrong')">wrong</button>
+            <button class="stop" onclick="stopSound()">stop</button>
+        </section>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
