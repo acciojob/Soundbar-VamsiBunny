@@ -1,17 +1,20 @@
-let currentSound = null;
+const audioPlayer = document.getElementById('audio-player');
+
+document.querySelectorAll('.btn').forEach((button) => {
+    button.addEventListener('click', () => {
+        const sound = button.getAttribute('data-sound');
+        playSound(sound);
+    });
+});
+
+document.querySelector('.stop').addEventListener('click', stopSound);
 
 function playSound(sound) {
-    if (currentSound) {
-        currentSound.pause();
-        currentSound.currentTime = 0;
-    }
-    currentSound = new Audio(`sounds/${sound}.mp3`);
-    currentSound.play();
+    audioPlayer.src = `sounds/${sound}.mp3`;
+    audioPlayer.play();
 }
 
 function stopSound() {
-    if (currentSound) {
-        currentSound.pause();
-        currentSound.currentTime = 0;
-    }
+    audioPlayer.pause();
+    audioPlayer.currentTime = 0;
 }
